@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>زر تحميل مزدوج</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      direction: rtl;
+      text-align: center;
+      padding-top: 50px;
+      background-color: #f9f9f9;
+    }
+
+    .dual-action-button {
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 32px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+
+    .dual-action-button:hover {
+      background-color: #45a049;
+    }
+
+    #secondClickContent {
+      display: none;
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="dual-action-button" onclick="handleClick(this)">pub</button>
+
+  <div id="secondClickContent"></div>
+
+  <script>
+    let clickedOnce = false;
+
+    function handleClick(button) {
+      if (!clickedOnce) {
+        clickedOnce = true;
+        window.open("https://www.google.com", "_blank"); // ← غيّر الرابط حسب الحاجة
+        button.textContent = "عرض المحتوى";
+      } else {
+        document.getElementById("secondClickContent").style.display = "block";
+        button.textContent = "تحميل مرة أخرى";
+        clickedOnce = false; // ← إعادة التهيئة للبدء من جديد
+      }
+    }
+  </script>
+
+</body>
+</html>
