@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تطبيق Telegram Mini App</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script src="https://cdn.monetag.com/sdk.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      text-align: center;
+      padding: 40px;
+      color: #333;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 24px;
+    }
+
+    button {
+      display: block;
+      width: 80%;
+      margin: 15px auto;
+      padding: 15px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .link-btn {
+      background-color: #0088cc;
+      color: #fff;
+    }
+
+    .link-btn:hover {
+      background-color: #0075b0;
+    }
+
+    .ad-btn {
+      background-color: #34a853;
+      color: #fff;
+    }
+
+    .ad-btn:hover {
+      background-color: #2c8d47;
+    }
+  </style>
+  <!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini App</title>
+</head>
+<body>
+  <h1>مرحبًا بك في تطبيقي!</h1>
+</body>
+</html>
+</head>
+<body>
+
+  <h1>مرحبًا بك في التطبيق 🎉</h1>
+
+  <!-- زر لفتح الرابط الخارجي -->
+  <button class="link-btn" onclick="openExternalLink()">افتح رابط المكافأة</button>
+
+  <!-- زر لعرض إعلان Monetag -->
+  <button class="ad-btn" onclick="showAd()">اعرض إعلان واربح</button>
+
+  <script>
+    Telegram.WebApp.ready();
+    Telegram.WebApp.expand();
+
+    // 🔗 رابط خارجي يُفتح في متصفح النظام
+    function openExternalLink() {
+      const url = "https://example.com"; // ← غيّر هذا لرابطك
+      window.open(url, "_blank");
+    }
+
+    // 🎯 تهيئة Monetag SDK
+    Monetag.init({
+      zoneId: "YOUR_ZONE_ID", // ← غيّر هذا إلى Zone ID من Monetag
+      format: "rewarded_interstitial", // يمكنك استخدام rewarded_popup أيضًا
+      onReward: () => {
+        alert("🎁 حصلت على مكافأة بعد مشاهدة الإعلان!");
+        // يمكنك تنفيذ أي مكافأة هنا (مثلاً: زيادة نقاط المستخدم)
+      }
+    });
+
+    // تشغيل الإعلان
+    function showAd() {
+      Monetag.showAd();
+    }
+  </script>
+
+</body>
+</html>
